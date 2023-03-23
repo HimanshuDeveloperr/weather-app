@@ -25,8 +25,9 @@ const Home = () => {
         <h2>News</h2>
       </div>
       <div className="current-date">
-        <p>{currentTime.toLocaleString()}</p>
-      </div>
+  <p>{currentTime.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })} {currentTime.toLocaleTimeString()}</p>
+</div>
+
     </div>
   );
 };
