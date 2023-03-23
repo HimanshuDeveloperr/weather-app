@@ -9,6 +9,8 @@ import "./Home.css";
 const Home = () => {
   const [currentTime, setCurrentTime] = useState(new Date());
 
+  const [weather,setWeather]=useState(null)
+
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTime(new Date());
@@ -19,8 +21,9 @@ const Home = () => {
 
   useEffect(()=>{
     const fetchWeatherData=async ()=>{
-      const data=await getFormattedWeatherData('paris')
+      const data=await getFormattedWeatherData('london')
       console.log(data)
+      setWeather(data)
     }
     fetchWeatherData()
   },[])
@@ -44,16 +47,17 @@ const Home = () => {
         </span>
 
       </div>
-      
+      {weather &&
       <div>
-        <Description></Description>
+        <Description weatherData={weather}></Description>
       </div>
+      }
       
      
       <div className="current-date">
   <p style={{display:'inline-block'}}>{currentTime.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
    <div style={{marginLeft:'100px'}}>
-        <span className="temp">32°c</span>
+        <span className="temp">{weather.temp.toFixed()}°c</span>
      
      {currentTime.toLocaleTimeString()}
     </div>

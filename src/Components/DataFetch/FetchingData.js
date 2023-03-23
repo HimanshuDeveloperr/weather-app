@@ -14,14 +14,14 @@ const getFormattedWeatherData = async (city, units = "metric") => {
   const {
     weather
 ,
-    main: { temp, humidity },
-    wind: { speed },
+    main: { temp, humidity, },
+    wind: { speed },name
   } = data;
 
    const{description,icon}=weather[0];
 
    return{
-    description,iconURL:WeatherIcon(icon),temp,humidity,speed,
+    description,iconURL:WeatherIcon(icon),temp,humidity,speed,name
    }
 
 };
