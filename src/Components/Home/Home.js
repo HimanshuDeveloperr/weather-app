@@ -13,6 +13,8 @@ const Home = () => {
 
   const [weather,setWeather]=useState(null)
 
+  const [units,setUnits]=useState('imperial')
+
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTime(new Date());
@@ -23,12 +25,12 @@ const Home = () => {
 
   useEffect(() => {
     const fetchWeatherData = async () => {
-      const data = await getFormattedWeatherData('london');
+      const data = await getFormattedWeatherData('london',units);
       console.log('Weather data:', data);
       setWeather(data);
     };
     fetchWeatherData();
-  }, []);
+  }, [units]);
   
 
 
@@ -61,7 +63,7 @@ const Home = () => {
       })}
     </p>
     <div style={{ marginLeft: '100px' }}>
-      <span className="temp">{weather.temp.toFixed()}°c</span>
+      <span className="temp">{weather.temp.toFixed()}°{units==='metric'?"C":"F"}</span>
       {currentTime.toLocaleTimeString()}
     </div>
   </div>
