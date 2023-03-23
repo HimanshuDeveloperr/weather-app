@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { NavLink } from "react-router-dom";
 import cold from "../../Assets/cold.jpg";
 import hot from "../../Assets/hot.jpg";
+import Description from "../Card/Description";
+import { getFormattedWeatherData } from "../DataFetch/FetchingData";
 import "./Home.css";
 
 const Home = () => {
@@ -13,19 +16,47 @@ const Home = () => {
     return () => clearInterval(timer);
   }, []);
 
+
+  useEffect(()=>{
+    const fetchWeatherData=async ()=>{
+      const data=await getFormattedWeatherData('paris')
+      console.log(data)
+    }
+    fetchWeatherData()
+  },[])
+
+
+
   return (
     <div className="app" style={{ backgroundImage: `url(${cold})` }}>
       <div>
-        <h2>Home</h2>
+        <span>
+
+        <NavLink to='/' className='nav-link'>Home</NavLink>
+        </span>
+        <span>
+        <NavLink className='nav-link'>Cities</NavLink>
+
+        </span>
+        <span>
+
+        <NavLink className='nav-link'>News</NavLink>
+        </span>
+
       </div>
+      
       <div>
-        <h2>Cities</h2>
+        <Description></Description>
       </div>
-      <div>
-        <h2>News</h2>
-      </div>
+      
+     
       <div className="current-date">
-  <p>{currentTime.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })} {currentTime.toLocaleTimeString()}</p>
+  <p style={{display:'inline-block'}}>{currentTime.toLocaleDateString(undefined, { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}</p>
+   <div style={{marginLeft:'100px'}}>
+        <span className="temp">32°c</span>
+     
+     {currentTime.toLocaleTimeString()}
+    </div>
 </div>
 
     </div>

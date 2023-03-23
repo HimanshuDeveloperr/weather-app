@@ -1,0 +1,30 @@
+:root{
+    --background-overlay:rgba(0,0,0,0.2)
+}
+
+.container{
+    
+    margin-top: 80px;
+    background-color: var(--background-overlay);
+    padding: 30px;
+    border-radius: 33px;
+    box-shadow: 22px;
+    width: 150%;
+    color:lightgrey;
+    margin-left: 60px;
+    
+}
+
+.span{
+    margin-left: 20px;
+    text-align: center;
+    margin-top: 50px;
+
+}
+
+@media only screen and (max-width: 768px){
+
+    .container{
+        margin: 10px;
+    }
+}

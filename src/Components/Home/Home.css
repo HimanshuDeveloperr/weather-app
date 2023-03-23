@@ -16,9 +16,58 @@
   }
   
   .current-date {
-    margin-top: 20px;
+    margin-top: 80px;
+    margin-right: 700px;
     font-size: 18px;
     color: white;
-    text-align: center;
+    text-align:left;
+    float: left;
   }
-  
+
+  .nav-link{
+    text-decoration: none;
+    margin-right:24px;
+    color:beige;
+    margin-top: 70px;
+  }
+
+  .nav-link:hover {
+    color:black;
+    
+  }
+
+
+.nav-link:active{
+    color:grey;
+}
+
+.temp{
+    margin-right: 10px;
+    font-size: 80px;
+    font-weight: bold;
+}
+
+/* Responsive styles */
+@media only screen and (max-width: 768px) {
+    .app {
+        height: 100vh;
+        padding: 20px;
+    }
+
+    .current-date {
+        position: static;
+        margin-top: 20px;
+        margin-right: 0;
+    }
+
+    .nav-links {
+        position: static;
+        margin-top: 10px;
+    }
+
+    .nav-link {
+        margin-left: 0;
+        margin-right: 12px;
+        margin-top: 30px;
+    }
+}
