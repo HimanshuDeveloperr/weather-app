@@ -16,6 +16,8 @@ const Home = () => {
 
   const [units,setUnits]=useState('metric')
 
+  const [city,setCity]=useState('london')
+
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTime(new Date());
@@ -26,18 +28,22 @@ const Home = () => {
 
   useEffect(() => {
     const fetchWeatherData = async () => {
-      const data = await getFormattedWeatherData('london',units);
+      const data = await getFormattedWeatherData(city,units);
       console.log('Weather data:', data);
       setWeather(data);
     };
     fetchWeatherData();
-  }, [units]);
+  }, [units,city]);
   
 const ButtonClick=(unit)=>{
   
   setUnits(unit)
   
   
+}
+
+const enterHandler=(place)=>{
+  setCity(place)
 }
 
   return (
@@ -78,7 +84,7 @@ const ButtonClick=(unit)=>{
 
   
     <div>
-      <City onClick={ButtonClick} units={units}></City>
+      <City onClick={ButtonClick} units={units} onEnter={enterHandler}></City>
     </div>
 
     </div>

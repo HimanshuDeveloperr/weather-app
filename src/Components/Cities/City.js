@@ -33,10 +33,17 @@ import React from 'react'
 import { Button } from 'react-bootstrap'
 import './City.css'
 
-const City = ({ onClick, units }) => {
+const City = ({ onClick, units,onEnter }) => {
+
+  const enterKeyPressed=(e)=>{
+    if(e.keyCode===13){
+      onEnter(e.currentTarget.value)
+    }
+  }
+
   return (
     <div className='city-container'>
-      <input type='text' name='City' placeholder='Enter city name' className='city-input'/>
+      <input onKeyDown={enterKeyPressed} type='text' name='City' placeholder='Enter city name' className='city-input'/>
       {units === 'metric' ? (
         <Button onClick={() => onClick('imperial')} className='f-button' variant='outline-light'>°F</Button>
       ) : (
