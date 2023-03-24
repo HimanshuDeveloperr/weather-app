@@ -1,7 +1,7 @@
 import Home from "./Components/Home/Home";
 
 import { Route ,Routes} from "react-router-dom";
-import City from "./Components/Cities/City";
+
 
 
 

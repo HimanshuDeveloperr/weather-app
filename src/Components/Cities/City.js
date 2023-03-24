@@ -38,6 +38,7 @@ const City = ({ onClick, units,onEnter }) => {
   const enterKeyPressed=(e)=>{
     if(e.keyCode===13){
       onEnter(e.currentTarget.value)
+      e.currentTarget.blur()
     }
   }
 

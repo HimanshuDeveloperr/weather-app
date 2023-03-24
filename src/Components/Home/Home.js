@@ -18,6 +18,8 @@ const Home = () => {
 
   const [city,setCity]=useState('london')
 
+  const [bg,setBg]=useState(cold)
+
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentTime(new Date());
@@ -31,6 +33,15 @@ const Home = () => {
       const data = await getFormattedWeatherData(city,units);
       console.log('Weather data:', data);
       setWeather(data);
+
+      //dynamic bg
+
+      const upperlimitForWeather=units==='metric' ? 20 : 60;
+      if(data.temp <= upperlimitForWeather){
+        setBg(cold)
+      }else{
+        setBg(hot)
+      }
     };
     fetchWeatherData();
   }, [units,city]);
@@ -48,7 +59,7 @@ const enterHandler=(place)=>{
 
   return (
     <>
-    <div className="app" style={{ backgroundImage: `url(${cold})` }}>
+    <div className="app" style={{ backgroundImage: `url(${bg})` }}>
       <div>
         <span>
 
