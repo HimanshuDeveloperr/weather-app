@@ -5,6 +5,7 @@ import { NavLink } from "react-router-dom";
 import cold from "../../Assets/cold.jpg";
 import hot from "../../Assets/hot.jpg";
 import Description from "../Card/Description";
+import City from "../Cities/City";
 import { getFormattedWeatherData } from "../DataFetch/FetchingData";
 import "./Home.css";
 
@@ -13,7 +14,7 @@ const Home = () => {
 
   const [weather,setWeather]=useState(null)
 
-  const [units,setUnits]=useState('imperial')
+  const [units,setUnits]=useState('metric')
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -32,9 +33,15 @@ const Home = () => {
     fetchWeatherData();
   }, [units]);
   
-
+const ButtonClick=(unit)=>{
+  
+  setUnits(unit)
+  
+  
+}
 
   return (
+    <>
     <div className="app" style={{ backgroundImage: `url(${cold})` }}>
       <div>
         <span>
@@ -70,8 +77,12 @@ const Home = () => {
 )}
 
   
+    <div>
+      <City onClick={ButtonClick} units={units}></City>
+    </div>
 
     </div>
+    </>
   );
 };
 

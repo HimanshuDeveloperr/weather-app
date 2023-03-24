@@ -1,0 +1,44 @@
+.city-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+  }
+  
+  .city-input {
+    padding: 10px;
+    font-size: 18px;
+    border: 2px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+  
+  .f-button {
+    background-color: #0740669f;
+    border-color: #0099ff;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+    transition: background-color 0.3s ease;
+  }
+  
+  .f-button:hover {
+    background-color: #0066cc;
+    border-color: #0066cc;
+  }
+  
+  .c-button{
+    background-color: #663d079f;
+    border-color: #663d079f;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 5px;
+    color: #fff;
+    transition: background-color 0.3s ease;
+  }
+
+  .c-button:hover{
+    background-color: #cc6300;
+    border-color: #cc6300;
+  }
